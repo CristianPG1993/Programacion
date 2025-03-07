@@ -10,7 +10,7 @@ public class Ejercicios {
 
         final double GRAVEDAD = 9.81;
 
-        System.out.println("La fuerza de la Gravedad tiene un valor de: " + 9.81 + " m/s2.");
+        System.out.println("La fuerza de la Gravedad tiene un valor de: " + GRAVEDAD + " m/s2.");
 
         // 2️⃣ Declara dos variables a = 25 y b = 7.
         // Realiza todas las operaciones aritméticas entre ellas e imprime los resultados.
