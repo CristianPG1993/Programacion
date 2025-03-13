@@ -1,8 +1,8 @@
-package ejerciciosClase2;
+package clase2ejercicios;
 
 import java.util.Scanner;
 
-public class ejerciciosClase2 {
+public class clase2ejercicios {
     public static void main(String[] args) {
 
 
