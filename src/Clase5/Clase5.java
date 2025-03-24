@@ -41,7 +41,7 @@ public class Clase5 {
 //                System.out.println("Hola, Bienvenido");
 //                break;
 //            case 2:
-//                System.out.println("Tu puedes con todo.");
+//                System.out.println("Tu puedes con ello.");
 //                break;
 //            case 3:
 //                System.out.println("Hasta luego Lucas!");
@@ -91,5 +91,4 @@ public class Clase5 {
 //        scanner.close();
 
    }
-
 }
