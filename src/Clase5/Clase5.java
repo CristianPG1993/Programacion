@@ -77,18 +77,18 @@ public class Clase5 {
 
           //Ejercicio 5. Pide contraseña y que el usuario no pueda entrar hasta que ponga java123
 
-//          Scanner scanner = new Scanner(System.in);
-//          String password;
-//
-//          //Bucle do - while
-//
-//          do {
-//              System.out.println("Introduce tu contraseña: ");
-//              password = scanner.nextLine();
-//          }while (!password.equals("java123"));
-//
-//        System.out.println("Acceso concedido");
-//        scanner.close();
+          Scanner scanner = new Scanner(System.in);
+          String password;
+
+          //Bucle do - while
+
+          do {
+              System.out.println("Introduce tu contraseña: ");
+              password = scanner.nextLine();
+          }while (!password.equals("java123"));
+
+        System.out.println("Acceso concedido");
+        scanner.close();
 
    }
 }
