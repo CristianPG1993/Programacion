@@ -2,7 +2,7 @@ package RetosAbril;
 
 import java.util.Scanner;
 
-public class reto5 {
+public class Reto5 {
 
     public static void main(String[] args) {
 
