@@ -1,45 +1,26 @@
 package Clase8;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Arrays;
 
 public class EjercicioArrays8 {
 
     public static void main(String[] args) {
 
-        ArrayList<String> nombres = new ArrayList<>();
+//        8. Rotar elementos
+//        Escribe un programa que rote los elementos de un array una posición hacia la derecha.
+//        Ejemplo: {1, 2, 3, 4, 5} → {5, 1, 2, 3, 4}.
 
-        Scanner scanner = new Scanner(System.in);
+        int [] array = {1, 2, 3, 4, 5};
 
-        for (int i = 0; i < 5; i++){
+        int ultimo = array.length;
 
-            System.out.println("Introduce el nombre " + (i + 1) + ": ");
-            nombres.add(scanner.nextLine().toLowerCase());
+        for(int i = array.length - 1; i > 0; i--){
 
-
-        }
-
-        for (String nombre : nombres){
-
-            System.out.println("Nombre: " + nombre);
+            array[i] = array[i - 1];
 
         }
+        array[0] = ultimo;
 
-        System.out.println("¿De que nombre desea conocer la posicion en la lista?");
-        String buscarNombre = scanner.nextLine().toLowerCase();
-
-        int posicion = nombres.indexOf(buscarNombre); // busca la posición
-
-        if (posicion != -1) {
-            System.out.println("El nombre '" + buscarNombre + "' está en la posición " + posicion + " de la lista.");
-        } else {
-            System.out.println("El nombre '" + buscarNombre + "' no se encuentra en la lista.");
-        }
-
-
-
-        scanner.close();
-
+        System.out.println(Arrays.toString(array));
     }
-
 }

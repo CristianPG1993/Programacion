@@ -1,50 +1,36 @@
 package Clase8;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class EjercicioArrays7 {
 
     public static void main(String[] args) {
 
-        ArrayList<String> tareas = new ArrayList<>();
+//        7. Copiar sin duplicados
+//        Dado un array con posibles números repetidos, crea un nuevo array que contenga los
+//        mismos elementos sin duplicados.
+//        Ejemplo: {1, 2, 2, 3, 4, 4, 5} → {1, 2, 3, 4, 5}.
 
-        Scanner scanner = new Scanner(System.in);
 
-        for (int i = 0; i < 4; i++){
+        int[] array = {1, 2, 2, 3, 3, 4, 4, 5, 5, 3, 3, 3, 2};
 
-            System.out.println("Escribe la tarea a realizar: ");
-            tareas.add(scanner.nextLine().toLowerCase());
+        System.out.println("Lista con números duplicados: " + Arrays.toString(array));
 
+        HashSet<Integer> arraySinDuplicados = new HashSet<>();
+
+        for (int numero : array) {
+            arraySinDuplicados.add(numero);
         }
 
-        System.out.println("Las tareas a realizar son: ");
-        for (String tarea : tareas){
+        int[] arrayNuevo = new int[arraySinDuplicados.size()];
+        int i = 0;
+        for (int numero : arraySinDuplicados) {
 
-            System.out.println("Tarea: " + tarea);
+            arrayNuevo[i++] = numero;
         }
+        System.out.println("Array sin duplicados: " + Arrays.toString(arrayNuevo));
 
-        System.out.println("Tarea que desea eliminar: ");
-        String eliminarTarea = scanner.nextLine().toLowerCase();
-
-        if(tareas.contains(eliminarTarea)){
-
-            tareas.remove(eliminarTarea);
-            System.out.println("La tarea " + eliminarTarea + " ha sido eliminada con exito.");
-
-        } else {
-
-            System.out.println("No se ha encontrado la tarea que desea eliminar. ");
-        }
-
-
-        System.out.println("Las tareas a realizar son: ");
-        for (String tarea : tareas){
-
-            System.out.println("Tarea: " + tarea);
-
-        }
-
-        scanner.close();
     }
 }
