@@ -12,6 +12,16 @@ public class Main {
         vehiculos[2] = new Coche("BMW Serie 3", 0, 0, 190);
         vehiculos[3] = new Bicicleta("Bicicleta urbana", 0, 0, 3);
 
+
+        for (Vehiculo v : vehiculos){
+            if (v instanceof Coche c){
+                System.out.println("Vehiculo: " + c.nombre);
+                System.out.println("------------------");
+            }else if (v instanceof Bicicleta b){
+                System.out.println("Vehiculo: " + b.nombre);
+                System.out.println("------------------");
+            }
+        }
         // Mostrar info de cada vehículo
         for (Vehiculo v : vehiculos) {
             System.out.println("Vehículo: " + v.nombre);
