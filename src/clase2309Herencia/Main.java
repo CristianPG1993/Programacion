@@ -6,21 +6,15 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ArrayList<Pago> pagos = new ArrayList<>();
+        Pago pago1 = new PagoTarjeta(150, "3837374732");
+        Pago pago2 = new Paypal(300, "jdjfjfj@gmail.com");
 
+        Pago[] pagos = { pago1, pago2};
 
+        for (Pago p: pagos){
 
-        pagos.add(new PagoTarjeta(20,"28374673"));
-        pagos.add(new Paypal(40, "ejejejeje@gmail.com"));
-        pagos.add(new PagoTarjeta(20, "28283474782"));
-
-
-
-        for( Pago p : pagos){
-
-            System.out.println("Cantidad: " + p);
-
-
+            p.procesarPago();
+            p.mostrarCantidad();
         }
 
     }
