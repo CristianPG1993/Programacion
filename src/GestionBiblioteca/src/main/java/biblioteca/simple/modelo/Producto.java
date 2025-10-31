@@ -28,11 +28,11 @@ public abstract class Producto {
         return id;
     }
 
-    protected String getTitulo() {
+    public String getTitulo() {
         return titulo;
     }
 
-    protected String getAnio() {
+    public String getAnio() {
         return anio;
     }
 
