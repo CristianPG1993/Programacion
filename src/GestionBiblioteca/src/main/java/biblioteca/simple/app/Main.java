@@ -42,11 +42,12 @@ public class Main {
 
         do{
             System.out.println("\n===Menú de Biblioteca===");
-            System.out.println("1. Listar");
-            System.out.println("2. Buscar por título");
-            System.out.println("3. Buscar por año");
-            System.out.println("4. Prestar Producto");
-            System.out.println("5. Devolver Producto");
+            System.out.println("1. Crear usuario");
+            System.out.println("2. Listar");
+            System.out.println("3. Buscar por título");
+            System.out.println("4. Buscar por año");
+            System.out.println("5. Prestar Producto");
+            System.out.println("6. Devolver Producto");
             System.out.println("0. Salir");
 
             //Comprobar que el scanner recibe un número
@@ -57,16 +58,42 @@ public class Main {
             scanner.nextLine();
 
             switch (opcion){
-                case 1 -> listar();
-                case 2 -> buscarPorTitulo();
-                case 3 -> buscarPorAnho();
-                case 4 -> prestar();
-                case 5 -> devolver();
+                case 1 -> crearUsuario();
+                case 2 -> listar();
+                case 3 -> buscarPorTitulo();
+                case 4 -> buscarPorAnho();
+                case 5 -> prestar();
+                case 6 -> devolver();
                 case 0 -> System.out.println("Adiós!");
                 default -> System.out.println("Opción no válida");
             }
 
         }while(opcion != 0);
+
+    }
+
+    private static void crearUsuario(){
+        System.out.println("Introduce el nombre del nuevo usuario: ");
+        String nombreUsuario = scanner.nextLine();
+
+        int maxId = 0;
+
+        for(Usuario u: usuarios){
+
+            if (maxId < u.getId()){
+
+                maxId = u.getId();
+            }
+        }
+
+        int nuevoId = maxId +1;
+        System.out.println("ID asignado automáticamente: " + nuevoId);
+
+        Usuario nuevoUsuario = new Usuario(nuevoId,nombreUsuario);
+        usuarios.add(nuevoUsuario);
+
+        System.out.println("Usuario " + nombreUsuario + " con ID: " + nuevoId +
+                " creado correctamente.");
 
     }
 
@@ -160,11 +187,20 @@ public class Main {
                 listarUsuarios();
 
                 //Pedir código de usuario
-                System.out.println("Ingresa código de usuario: ");
+                System.out.println("Ingresa código de usuario( 0 para crear un usuario nuevo): ");
                 int codUsuario = scanner.nextInt();
                 scanner.nextLine();
-                Usuario u1 = getUsuarioPorCodigo(codUsuario);
 
+                Usuario u1;
+
+                if(codUsuario == 0){
+                    crearUsuario();
+
+                    u1 = usuarios.get(usuarios.size() - 1);
+                }else {
+
+                    u1 = getUsuarioPorCodigo(codUsuario);
+                }
                 //Comprobar el código de usuario
                 if (u1 == null){
                     System.out.println("Usuario no encontrado");
