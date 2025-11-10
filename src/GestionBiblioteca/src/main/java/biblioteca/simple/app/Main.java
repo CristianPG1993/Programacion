@@ -99,10 +99,128 @@ public class Main {
 
     }
 
+    private static void listarUsuarios(){
+        if (usuarios.isEmpty()){
+            System.out.println("NO hay usuarios registrados.");
+            return;
+        }
+
+        System.out.println("### Lista Usuarios ###");
+        usuarios.forEach(u -> System.out.println("- Código: " + u.getId() +
+                "| Nombre: " + u.getNombre()));
+    }
+
+    private static Usuario getUsuarioPorCodigo(int id){
+        return usuarios.stream()
+                .filter(u -> u.getId() == id)
+                .findFirst()
+                .orElse(null);
+    }
+
     private static void prestar(){
 
         // 1) Mostrar productos disponibles
-        List<Producto> disponibles = catalogo.listar().stream().filter(p -> p instanceof Prestable pN && !pN.estaPrestado()).collect(Collectors.toList());
+        List<Producto> disponibles = catalogo.listar().stream()
+                .filter(p -> p instanceof Prestable pN && !pN.estaPrestado())
+                .collect(Collectors.toList());
+        //Comprobar si está vacía la lista
+        if (disponibles.isEmpty()){
+            System.out.println("No hay productos para prestar.");
+        }
+
+        //Mostrar los productos disponibles
+        System.out.println("### PRODUCTOS DISPONIBLES ###");
+        disponibles.forEach(p -> System.out.println("- ID: " + p.getId() + " | " + p));
+
+        //Pedir al usuario que escriba el id del producto que desea
+        System.out.println("Escribe el id del producto: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+
+        // Recorrer la lista de productos
+        Producto pEncontrado = disponibles.stream()
+                .filter( p -> {
+                        try{
+                            return p.getId() == id;
+                        } catch(NumberFormatException e){
+
+                            return false;
+                        }
+                    })
+                .findFirst()
+                .orElse(null);
+
+                //Comprobar si el id de producto no exite
+                if(pEncontrado == null){
+                    System.out.println("El id no existe");
+                    return;
+                }
+
+                listarUsuarios();
+
+                //Pedir código de usuario
+                System.out.println("Ingresa código de usuario: ");
+                int codUsuario = scanner.nextInt();
+                scanner.nextLine();
+                Usuario u1 = getUsuarioPorCodigo(codUsuario);
+
+                //Comprobar el código de usuario
+                if (u1 == null){
+                    System.out.println("Usuario no encontrado");
+                }
+
+
+                Prestable pPrestable =(Prestable) pEncontrado;
+                pPrestable.prestar(u1);
+
+    }
+
+
+
+    private static void devolver(){
+
+        // 1) Mostrar productos prestados
+        List<Producto> pPrestados = catalogo.listar().stream()
+                .filter(p -> p instanceof Prestable pN && pN.estaPrestado())
+                .collect(Collectors.toList());
+        //Comprobar si está vacía la lista
+        if (pPrestados.isEmpty()){
+            System.out.println("No hay productos para prestar.");
+        }
+
+        //Mostrar los productos disponibles
+        System.out.println("### PRODUCTOS PRESTADOS ###");
+        pPrestados.forEach(p -> System.out.println("- ID: " + p.getId() + " | " + p));
+
+        //Pedir al usuario que escriba el id del producto que desea
+        System.out.println("Escribe el id del producto: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+
+        // Recorrer la lista de productos
+        Producto pEncontrado = pPrestados.stream()
+                .filter( p -> {
+                    try{
+                        return p.getId() == id;
+                    } catch(NumberFormatException e){
+
+                        return false;
+                    }
+                })
+                .findFirst()
+                .orElse(null);
+
+        //Comprobar si el id de producto no exite
+        if(pEncontrado == null){
+            System.out.println("El id no existe");
+            return;
+        }
+
+        Prestable pE = (Prestable) pEncontrado;
+        pE.devolver();
+        System.out.println("Devuelto correctamente");
 
     }
 

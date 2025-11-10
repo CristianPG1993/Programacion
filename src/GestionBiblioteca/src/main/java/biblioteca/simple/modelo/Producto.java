@@ -24,7 +24,7 @@ public abstract class Producto {
     }
 
 
-    protected int getId() {
+    public int getId() {
         return id;
     }
 
