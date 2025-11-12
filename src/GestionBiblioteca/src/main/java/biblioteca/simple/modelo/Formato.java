@@ -1,3 +1,3 @@
-package GestionBiblioteca.src.main.java.biblioteca.simple.modelo;
+package biblioteca.simple.modelo;
 
 public enum Formato {FISICO, DIGITAL}

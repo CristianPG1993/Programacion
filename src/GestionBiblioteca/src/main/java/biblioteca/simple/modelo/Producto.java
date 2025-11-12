@@ -1,4 +1,5 @@
-package GestionBiblioteca.src.main.java.biblioteca.simple.modelo;
+package biblioteca.simple.modelo;
+
 
 public abstract class Producto {
 

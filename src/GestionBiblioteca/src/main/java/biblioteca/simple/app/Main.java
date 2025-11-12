@@ -1,8 +1,8 @@
-package GestionBiblioteca.src.main.java.biblioteca.simple.app;
+package biblioteca.simple.app;
 
-import GestionBiblioteca.src.main.java.biblioteca.simple.contratos.Prestable;
-import GestionBiblioteca.src.main.java.biblioteca.simple.modelo.*;
-import GestionBiblioteca.src.main.java.biblioteca.simple.servicios.Catalogo;
+import biblioteca.simple.contratos.Prestable;
+import biblioteca.simple.modelo.*;
+import biblioteca.simple.servicios.Catalogo;
 
 import java.util.ArrayList;
 import java.util.List;

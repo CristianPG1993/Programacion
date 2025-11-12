@@ -1,6 +1,6 @@
-package GestionBiblioteca.src.main.java.biblioteca.simple.servicios;
+package biblioteca.simple.servicios;
 
-import GestionBiblioteca.src.main.java.biblioteca.simple.modelo.Producto;
+import biblioteca.simple.modelo.Producto;
 
 import java.util.ArrayList;
 import java.util.List;

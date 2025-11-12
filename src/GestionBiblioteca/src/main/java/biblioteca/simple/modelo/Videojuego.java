@@ -1,6 +1,6 @@
-package GestionBiblioteca.src.main.java.biblioteca.simple.modelo;
+package biblioteca.simple.modelo;
 
-import GestionBiblioteca.src.main.java.biblioteca.simple.contratos.Prestable;
+import biblioteca.simple.contratos.Prestable;
 
 public class Videojuego extends Producto implements Prestable {
 

@@ -1,6 +1,6 @@
-package GestionBiblioteca.src.main.java.biblioteca.simple.contratos;
+package biblioteca.simple.contratos;
 
-import GestionBiblioteca.src.main.java.biblioteca.simple.modelo.Usuario;
+import biblioteca.simple.modelo.Usuario;
 
 //La interfaz Prestable define el comportamiento que deben tener los objetos que pueden ser prestados
 public interface Prestable {

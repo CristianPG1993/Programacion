@@ -1,38 +1,35 @@
+# ============================
+# ☕ Proyecto Java + IntelliJ
+# ============================
+
+# === Compilación / Maven ===
 target/
 !.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
 
-### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
+# === IntelliJ IDEA ===
+.idea/
 *.iml
-*.ipr
+out/
 
-### Eclipse ###
-.apt_generated
+# === Eclipse (por si abres ahí) ===
 .classpath
-.factorypath
 .project
-.settings
-.springBeans
+.settings/
+.apt_generated
+.factorypath
 .sts4-cache
 
-### NetBeans ###
+# === NetBeans (por si el profesor abre ahí) ===
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+/build/
 
-### VS Code ###
+# === Visual Studio Code ===
 .vscode/
 
-### Mac OS ###
+# === Sistema Operativo ===
 .DS_Store
+Thumbs.db
