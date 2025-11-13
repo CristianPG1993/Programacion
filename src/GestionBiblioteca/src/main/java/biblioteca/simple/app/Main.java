@@ -3,7 +3,9 @@ package biblioteca.simple.app;
 import biblioteca.simple.contratos.Prestable;
 import biblioteca.simple.modelo.*;
 import biblioteca.simple.servicios.Catalogo;
+import biblioteca.simple.servicios.PersistenciaUsuario;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -48,6 +50,8 @@ public class Main {
             System.out.println("4. Buscar por año");
             System.out.println("5. Prestar Producto");
             System.out.println("6. Devolver Producto");
+            System.out.println("7. Exportar lista de usuarios");
+            System.out.println("8. Importar lista de usuarios");
             System.out.println("0. Salir");
 
             //Comprobar que el scanner recibe un número
@@ -64,6 +68,8 @@ public class Main {
                 case 4 -> buscarPorAnho();
                 case 5 -> prestar();
                 case 6 -> devolver();
+                case 7 -> exportarUsuarios();
+                case 8 -> importarUsuarios();
                 case 0 -> System.out.println("Adiós!");
                 default -> System.out.println("Opción no válida");
             }
@@ -258,6 +264,31 @@ public class Main {
         pE.devolver();
         System.out.println("Devuelto correctamente");
 
+    }
+
+    private static void exportarUsuarios(){
+
+        try {
+            PersistenciaUsuario.exportar(usuarios);
+            System.out.println("Usuarios exportados correctamente.");
+        } catch (Exception e) {
+            System.out.println("Error al exportar usuarios." + e.getMessage());
+        }
+    }
+
+    private static void importarUsuarios(){
+
+        try {
+
+            List<Usuario> cargados = PersistenciaUsuario.importar();
+            usuarios.clear();
+            usuarios.addAll(cargados);
+            System.out.println("Usuarios cargados con éxito.");
+
+        } catch (Exception e){
+
+            System.out.println("Error al importar: " + e.getMessage());
+        }
     }
 
 }
